@@ -121,6 +121,7 @@ let characters = [
 ];
 
 const cardsRow = document.getElementById("cardsRow");
+const button = document.getElementById("showButton");
 
 function showCharacters() {
   let arr = "";
@@ -132,5 +133,20 @@ function showCharacters() {
 
 
   cardsRow.innerHTML = arr;
-    
+
+  cardsRow.classList.toggle("display");
+  cardsRow.classList.toggle("hide");
+
+  button.classList.toggle("btn-hide");
+  button.classList.toggle("btn-show");
+
+    if (button.innerText == "Display Characters") {
+      button.innerText = "Hide Characters"
+    } else {
+      button.innerText = "Display Characters";
+    }
 };
+
+function hideCharacters() {
+  cardsRow.innerHTML = " ";
+}
