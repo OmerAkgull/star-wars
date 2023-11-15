@@ -7,6 +7,8 @@
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-image: url(assets/background-galax.jpg);
+    background-size: cover;
   }
   img, picture, video, canvas, svg {
     display: block;
@@ -20,4 +22,15 @@
   }
   #root, #__next {
     isolation: isolate;
+  }
+
+  .img-center {
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .logo-sw {
+    max-width: 35%;
+    height: auto;
   }
