@@ -146,7 +146,3 @@ function showCharacters() {
       button.innerText = "Display Characters";
     }
 };
-
-function hideCharacters() {
-  cardsRow.innerHTML = " ";
-}
