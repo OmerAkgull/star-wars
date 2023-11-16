@@ -123,12 +123,13 @@ let characters = [
 
 const cardsRow = document.getElementById("cardsRow");
 const button = document.getElementById("showButton");
+const radioContainer = document.getElementById("radioContainer")
 
 function showCharacters() {
   let arr = "";
+  let arrTwo = "";
   for (let i = 0; i<characters.length; i++) {
     const card = characters[i];
-    console.log(card);
     arr +=  `<div class="card" style="width: 18rem;"><ul class="list-group list-group-flush text-center"><li class="list-group-item"><img class="img-fluid" src=${card?.pic}></li><li class="list-group-item">${card?.name}</li><li class="list-group-item">${card?.homeworld}</li></ul></div>`;
   }    
 
@@ -141,12 +142,39 @@ function showCharacters() {
   button.classList.toggle("btn-hide");
   button.classList.toggle("btn-show");
 
+  radioContainer.classList.toggle("display");
+  radioContainer.classList.toggle("hide");
+
     if (button.innerText == "Display Characters") {
       button.innerText = "Hide Characters"
     } else {
       button.innerText = "Display Characters";
     }
+
+    for (let i=0; i<homeWorlds.length; i++) {
+      const radio = homeWorlds[i];
+      arrTwo += `<div class="form-check">
+      <input class="form-check-input mx-2" type="radio" name="homeworld" id="homeworld-${homeWorlds[i]}">
+      <label class="form-check-label" for="">${homeWorlds[i]}
+      </label>
+    </div>`
+
+    radioContainer.innerHTML = arrTwo;
+    }
 };
 
 let homeworldsRaw = characters.map(a => a.homeworld);
 console.log(homeworldsRaw);
+
+let homeworldsUnique = [...new Set(homeworldsRaw)];
+console.log(homeworldsUnique);
+
+let homeworldsLowercase = homeworldsUnique.map(a => {
+  return a.toLowerCase();
+});
+
+
+
+const homeWorlds =  homeworldsLowercase;
+
+console.log(homeworldsLowercase);
