@@ -97,3 +97,11 @@ h6 {
 .hide {
   display: none;
 }
+
+.list-group-item:first-child {
+  place-self: center;
+}
+
+.img-fluid {
+  height: 300px;
+}

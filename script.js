@@ -111,6 +111,7 @@ let characters = [
     id: 19,
     name: "Yoda",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png",
+    homeworld: "other",
   },
   {
     id: 20,
@@ -146,3 +147,6 @@ function showCharacters() {
       button.innerText = "Display Characters";
     }
 };
+
+let homeworldsRaw = characters.map(a => a.homeworld);
+console.log(homeworldsRaw);
