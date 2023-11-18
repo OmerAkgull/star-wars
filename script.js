@@ -141,7 +141,7 @@ function showCharacters() {
   button.classList.toggle("btn-hide");
   button.classList.toggle("btn-show");
 
-  radioContainer.classList.toggle("display");
+  radioContainer.classList.toggle("display-flex");
   radioContainer.classList.toggle("hide");
 
   if (button.innerText == "Display Characters") {
@@ -176,6 +176,7 @@ const homeWorlds = homeworldsLowercase;
 
 console.log(homeworldsLowercase);
 
+
 document.addEventListener("DOMContentLoaded", function () {
   let filteredHomeworld = null;
 
@@ -195,3 +196,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateHomeworld();
 });
+
+showCharacters();

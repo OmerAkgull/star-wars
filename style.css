@@ -105,3 +105,7 @@ h6 {
 .img-fluid {
   height: 300px;
 }
+
+.display-flex {
+  display: flex;
+}
