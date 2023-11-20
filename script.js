@@ -87,7 +87,7 @@ let characters = [
     id: 15,
     name: "Greedo",
     pic: "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg",
-    homeworld: "Rodia",
+    homeworld: "rodia",
   },
   {
     id: 16,
@@ -130,7 +130,7 @@ function showCharacters() {
   let arrTwo = "";
   for (let i = 0; i < characters.length; i++) {
     const card = characters[i];
-    arr += `<div class="card" style="width: 18rem;"><ul class="list-group list-group-flush text-center"><li class="list-group-item"><img class="img-fluid" src=${card?.pic}></li><li class="list-group-item">${card?.name}</li><li class="list-group-item">${card?.homeworld}</li></ul></div>`;
+    arr += `<div class="card" filter-id="${card?.homeworld}" style="width: 18rem;"><ul class="list-group list-group-flush text-center"><li class="list-group-item"><img class="img-fluid" src=${card?.pic}></li><li class="list-group-item">${card?.name}</li><li class="list-group-item">${card?.homeworld}</li></ul></div>`;
   }
 
   cardsRow.innerHTML = arr;
@@ -176,7 +176,6 @@ const homeWorlds = homeworldsLowercase;
 
 console.log(homeworldsLowercase);
 
-
 document.addEventListener("DOMContentLoaded", function () {
   let filteredHomeworld = null;
 
@@ -186,6 +185,16 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const radioButton of radioButtons) {
       if (radioButton.checked) {
         filteredHomeworld = radioButton.value;
+        var cards = document.getElementsByClassName("card");
+        cards = Array.from(cards);
+        cards.forEach(function (item, index) {
+         if(item.getAttribute("filter-id")!=filteredHomeworld){
+          item.style.display="none"
+         }else{
+          item.style.display="block"
+          
+         }
+        });
         break;
       }
     }
